@@ -1,0 +1,266 @@
+/* ===== HERO — FLAYKS-INSPIRED ===== */
+.hero {
+  position: relative;
+  height: 100dvh; /* Use dynamic viewport height */
+  min-height: 100vh; /* Fallback for browsers that don't support dvh */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-dark);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 15% 85%, rgba(232, 93, 47, 0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 50% at 85% 15%, rgba(62, 207, 224, 0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 55% 50%, rgba(255, 107, 74, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 30% at 30% 20%, rgba(200, 255, 46, 0.06) 0%, transparent 60%);
+  overflow: hidden;
+  padding: 0;
+}
+
+/* ── IMMERSIVE VIDEO-STYLE BACKGROUND CANVAS ── */
+.hero-video-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.hero-gradient-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  will-change: background;
+}
+
+.hero-gradient-1 {
+  animation: gradientShift1 25s ease-in-out infinite;
+}
+
+.hero-gradient-2 {
+  animation: gradientShift2 30s ease-in-out infinite reverse;
+}
+
+.hero-gradient-3 {
+  animation: gradientShift3 35s ease-in-out infinite;
+}
+
+@keyframes gradientShift1 {
+  0%, 100% {
+    background: radial-gradient(ellipse 800px 600px at 25% 50%, rgba(255, 107, 74, 0.15) 0%, transparent 70%);
+  }
+  50% {
+    background: radial-gradient(ellipse 1000px 800px at 75% 30%, rgba(62, 207, 224, 0.2) 0%, transparent 65%);
+  }
+}
+
+@keyframes gradientShift2 {
+  0%, 100% {
+    background: radial-gradient(ellipse 900px 700px at 50% 70%, rgba(200, 255, 46, 0.18) 0%, transparent 60%);
+  }
+  50% {
+    background: radial-gradient(ellipse 1100px 900px at 25% 30%, rgba(232, 93, 47, 0.22) 0%, transparent 55%);
+  }
+}
+
+@keyframes gradientShift3 {
+  0%, 100% {
+    background: radial-gradient(ellipse 700px 500px at 75% 50%, rgba(255, 245, 225, 0.12) 0%, transparent 75%);
+  }
+  50% {
+    background: radial-gradient(ellipse 900px 700px at 50% 25%, rgba(62, 207, 224, 0.16) 0%, transparent 65%);
+  }
+}
+
+.hero-mesh-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  overflow: hidden;
+}
+
+.hero-mesh-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-particle-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.hero-particle-0 {
+  background: rgba(255, 107, 74, 0.4);
+  box-shadow: 0 0 6px rgba(255, 107, 74, 0.3);
+}
+
+.hero-particle-1 {
+  background: rgba(62, 207, 224, 0.3);
+  box-shadow: 0 0 6px rgba(62, 207, 224, 0.2);
+}
+
+.hero-particle-2 {
+  background: rgba(200, 255, 46, 0.3);
+  box-shadow: 0 0 6px rgba(200, 255, 46, 0.2);
+}
+
+.hero-particle-3 {
+  background: rgba(232, 93, 47, 0.3);
+  box-shadow: 0 0 6px rgba(232, 93, 47, 0.2);
+}
+
+.hero-particle-4 {
+  background: rgba(255, 245, 225, 0.2);
+  box-shadow: 0 0 4px rgba(255, 245, 225, 0.1);
+}
+
+.hero-particle-5 {
+  background: rgba(62, 207, 224, 0.25);
+  box-shadow: 0 0 4px rgba(62, 207, 224, 0.15);
+}
+
+.hero-wave-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero-wave-1 {
+  z-index: 1;
+}
+
+.hero-wave-2 {
+  z-index: 2;
+  bottom: auto;
+  top: 0;
+  transform: rotate(180deg);
+}
+
+.hero-gradient-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ── ANIMATED BACKGROUND LAYERS ── */
+.hero-bg-layers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-bg-shape {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.hero-bg-shape-1 {
+  top: 10%;
+  left: 5%;
+}
+
+.hero-bg-shape-2 {
+  top: 60%;
+  right: 8%;
+}
+
+.hero-bg-shape-3 {
+  bottom: 15%;
+  left: 12%;
+}
+
+.hero-bg-shape-4 {
+  top: 25%;
+  right: 25%;
+}
+
+.hero-bg-shape-5 {
+  bottom: 30%;
+  right: 15%;
+}
+
+.hero-bg-dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-bg-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.hero-bg-dot-0 {
+  background: rgba(255, 107, 74, 0.4);
+}
+
+.hero-bg-dot-1 {
+  background: rgba(62, 207, 224, 0.3);
+}
+
+.hero-bg-dot-2 {
+  background: rgba(200, 255, 46, 0.3);
+}
+
+.hero-bg-dot-3 {
+  background: rgba(232, 93, 47, 0.3);
+}
+
+.hero-bg-dot-4 {
+  background: rgba(255, 245, 225, 0.2);
+}
+
+.hero-bg-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-bg-line {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+  opacity: 0.6;
+}
+
+.hero-bg-line-1 {
+  top: 20%;
+  left: -50px;
+}
+
+.hero-bg-line-2 {
+  top: 50%;
+  right: -100px;
+}
+
+.hero-bg-line-3 {
+  bottom: 25%;
+  left: -25px;
+}
