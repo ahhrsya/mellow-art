@@ -1,21 +1,21 @@
 const marqueeItems = [
-    'Art Markets',
-    'Local Makers',
-    'Live Music',
-    'Workshops',
-    'Ceramics',
-    'Painting',
-    'Sculpture',
-    'Photography',
-    'Printmaking',
-    'Textiles',
+    { text: 'Art Markets', emoji: '🎨' },
+    { text: 'Local Makers', emoji: '✦' },
+    { text: 'Live Music', emoji: '🎵' },
+    { text: 'Workshops', emoji: '★' },
+    { text: 'Ceramics', emoji: '🏺' },
+    { text: 'Painting', emoji: '✦' },
+    { text: 'Sculpture', emoji: '🗿' },
+    { text: 'Photography', emoji: '★' },
+    { text: 'Printmaking', emoji: '🎨' },
+    { text: 'Textiles', emoji: '✦' },
 ]
 
 export default function Marquee({ variant = 'default' }) {
     const content = marqueeItems.map((item, i) => (
         <span key={i} className="marquee-item">
-            {item}
-            <span className="marquee-separator" />
+            <span className="marquee-emoji">{item.emoji}</span>
+            {item.text}
         </span>
     ))
 

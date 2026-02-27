@@ -4,7 +4,8 @@ import CreativeShowcase from './components/CreativeShowcase'
 import Marquee from './components/Marquee'
 import About from './components/About'
 import FeaturedEvents from './components/FeaturedEvents'
-import PastEvents from './components/PastEvents'
+import EventsScrollReveal from './components/EventsScrollReveal'
+import Artists from './components/Artists'
 import MakersDirectory from './components/MakersDirectory'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -22,8 +23,9 @@ export default function App() {
         <About />
         <Marquee />
         <FeaturedEvents />
-        <PastEvents />
+        <EventsScrollReveal />
         <Marquee variant="alt" />
+        <Artists />
         <MakersDirectory />
         <Contact />
       </main>
