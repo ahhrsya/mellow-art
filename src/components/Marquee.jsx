@@ -1,32 +1,45 @@
-const marqueeItems = [
-    { text: 'Art Markets', emoji: '🎨' },
-    { text: 'Local Makers', emoji: '✦' },
-    { text: 'Live Music', emoji: '🎵' },
-    { text: 'Workshops', emoji: '★' },
-    { text: 'Ceramics', emoji: '🏺' },
-    { text: 'Painting', emoji: '✦' },
-    { text: 'Sculpture', emoji: '🗿' },
-    { text: 'Photography', emoji: '★' },
-    { text: 'Printmaking', emoji: '🎨' },
-    { text: 'Textiles', emoji: '✦' },
-]
+import React from 'react';
 
-export default function Marquee({ variant = 'default' }) {
-    const content = marqueeItems.map((item, i) => (
-        <span key={i} className="marquee-item">
-            <span className="marquee-emoji">{item.emoji}</span>
-            {item.text}
-        </span>
-    ))
+const Marquee = () => {
+    const content = "Independent Art ✦ Melbourne Markets ✦ Meet the Maker ✦ Handcrafted Goods ✦ Support Local Artists ✦ Ethical Buying ✦ Stall Applications Open ✦ Real Art. Real People. ✦ ";
 
     return (
-        <div className={`marquee-section ${variant === 'alt' ? 'alt' : ''}`}>
-            <div className="marquee-track">
-                <div className="marquee-content">{content}</div>
-                <div className="marquee-content" aria-hidden="true">
-                    {content}
+        <section className="marquee-section with-border" style={{ backgroundColor: 'var(--plum)', position: 'relative', overflow: 'hidden', borderLeft: 'none', borderRight: 'none', padding: '12px 0' }}>
+            <style>{`
+        @keyframes scrollLeft {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes scrollRight {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+        .marquee-container {
+          display: flex;
+          white-space: nowrap;
+          width: fit-content;
+        }
+        .marquee-row-1 {
+          animation: scrollLeft 30s linear infinite;
+        }
+        .marquee-row-2 {
+          animation: scrollRight 30s linear infinite;
+        }
+      `}</style>
+
+            <div className="marquee-row-1 marquee-container" style={{ borderBottom: '2px solid var(--stroke)', paddingBottom: '8px' }}>
+                <div style={{ color: 'var(--mustard)', fontFamily: 'Boogaloo', fontSize: '24px', paddingRight: '10px' }}>
+                    {content.repeat(4)}
                 </div>
             </div>
-        </div>
-    )
-}
+
+            <div className="marquee-row-2 marquee-container" style={{ paddingTop: '8px' }}>
+                <div style={{ color: 'var(--mustard)', fontFamily: 'Boogaloo', fontSize: '24px', paddingRight: '10px' }}>
+                    {content.repeat(4)}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default Marquee;

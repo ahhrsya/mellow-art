@@ -1,476 +1,145 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
-
-/* ===== DESIGN TOKENS ===== */
 :root {
-  /* Core palette — bold, energetic, DIKO-inspired */
-  --color-primary: #E85D2F;
-  /* burnt orange     */
-  --color-accent: #FF6B4A;
-  /* vivid coral      */
-  --color-cream: #FFF5E1;
-  /* warm cream       */
-  --color-electric: #3ECFE0;
-  /* electric cyan    */
-  --color-lime: #C8FF2E;
-  /* acid lime        */
-  --color-hot-pink: #FF2D78;
-  /* hot pink         */
-  --color-yellow: #FFDD00;
-  /* electric yellow  */
-  --color-violet: #7B2FBE;
-  /* deep violet      */
-  --color-dark: #0E0E0E;
-  --color-white: #FFFFFF;
-  --color-muted: #888888;
-  --color-ink: #1A1A1A;
-  /* near-black       */
-
-  /* Typography */
-  --font-handdrawn: 'Syne', sans-serif;
-  --font-bold: 'Syne', sans-serif;
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'Outfit', sans-serif;
-
-  /* Spacing (8px grid) */
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 1.5rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
-  --space-2xl: 4rem;
-  --space-3xl: 6rem;
-  --space-4xl: 8rem;
-  --space-5xl: 12rem;
-
-  /* Border Radius */
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-full: 999px;
-
-  /* Transitions */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --transition-fast: 0.2s var(--ease-out);
-  --transition-base: 0.4s var(--ease-out);
-  --transition-slow: 0.8s var(--ease-out);
-
-  /* Z-index */
-  --z-navbar: 1000;
-  --z-overlay: 900;
-  --z-floating: 100;
+  --cream: #F5EFE0;
+  --warm-white: #FDFAF4;
+  --terracotta: #D4603A;
+  --mustard: #E8B84B;
+  --sage: #7AAE8E;
+  --plum: #4A2D4E;
+  --blush: #F0C4B0;
+  --ink: #1E1412;
+  --stroke: #1E1412;
 }
 
-/* ===== GLOBAL RESET ===== */
-*,
-*::before,
-*::after {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 body {
-  font-family: var(--font-body);
-  font-weight: 400;
-  color: var(--color-dark);
-  background-color: var(--color-cream);
-  line-height: 1.6;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-img,
-video {
-  max-width: 100%;
-  display: block;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-  font-family: inherit;
-}
-
-/* ===== TYPOGRAPHY ===== */
-
-/* h1/h2 use the hand-drawn font — primary DIKO gesture */
-h1,
-h2 {
-  font-family: var(--font-handdrawn);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: 0.01em;
-}
-
-h3,
-h4 {
-  font-family: var(--font-bold);
-  font-weight: 800;
+h1, h2, h3, h4 {
+  font-family: 'Boogaloo', cursive;
+  color: var(--plum);
   line-height: 1.1;
-  letter-spacing: 0.01em;
 }
 
-h1 {
-  font-size: clamp(3.5rem, 10vw, 9rem);
+p, span, li, a {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
 }
 
-h2 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+.editorial {
+  font-family: 'Fraunces', serif;
 }
 
-h3 {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+.italic {
+  font-style: italic;
 }
 
-h4 {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+/* Global Border Rule */
+.with-border {
+  border: 2px solid var(--stroke);
 }
 
-p {
-  font-size: clamp(1rem, 1.2vw, 1.15rem);
-  line-height: 1.7;
-  color: var(--color-muted);
+/* Global Hard Shadow */
+.hard-shadow {
+  box-shadow: 4px 4px 0 var(--stroke);
 }
 
-/* ===== UTILITY TEXT CLASSES ===== */
-.text-accent {
-  color: var(--color-accent);
+.hard-shadow-lg {
+  box-shadow: 8px 8px 0 var(--stroke);
 }
 
-.text-cream {
-  color: var(--color-cream);
+/* Rounded Utilities */
+.pill {
+  border-radius: 9999px;
 }
 
-.text-primary {
-  color: var(--color-primary);
+.rounded-lg {
+  border-radius: 20px;
 }
 
-.text-yellow {
-  color: var(--color-yellow);
-}
-
-.text-pink {
-  color: var(--color-hot-pink);
-}
-
-/* Hand-drawn override — key DIKO element */
-.hand {
-  font-family: var(--font-handdrawn) !important;
-  letter-spacing: 0.01em !important;
-}
-
-.bold-display {
-  font-family: var(--font-bold) !important;
-}
-
-/* ===== KEYFRAME ANIMATIONS ===== */
-
-/* Friendly wobble */
-@keyframes wobble {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  15% {
-    transform: rotate(-3deg) scale(1.05);
-  }
-
-  30% {
-    transform: rotate(3deg) scale(1.02);
-  }
-
-  45% {
-    transform: rotate(-2deg);
-  }
-
-  60% {
-    transform: rotate(2deg);
-  }
-
-  75% {
-    transform: rotate(-1deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-/* Gentle float with slight tilt */
-@keyframes floatBounce {
-
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  33% {
-    transform: translateY(-12px) rotate(2deg);
-  }
-
-  66% {
-    transform: translateY(-6px) rotate(-1.5deg);
-  }
-}
-
-/* Colour cycling through brand palette */
-@keyframes colorPop {
-
-  0%,
-  100% {
-    color: var(--color-accent);
-  }
-
-  25% {
-    color: var(--color-hot-pink);
-  }
-
-  50% {
-    color: var(--color-yellow);
-  }
-
-  75% {
-    color: var(--color-lime);
-  }
-}
-
-/* Brush-stroke reveal */
-@keyframes brushStroke {
-  0% {
-    clip-path: inset(0 100% 0 0);
-    opacity: 1;
-  }
-
-  100% {
-    clip-path: inset(0 0% 0 0);
-    opacity: 1;
-  }
-}
-
-/* Micro-jitter for hand-drawn feel */
-@keyframes jitter {
-
-  0%,
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-
-  10% {
-    transform: translate(-1px, 1px) rotate(-0.5deg);
-  }
-
-  20% {
-    transform: translate(1px, -1px) rotate(0.5deg);
-  }
-
-  30% {
-    transform: translate(-1px, 0) rotate(-0.3deg);
-  }
-
-  40% {
-    transform: translate(1px, 1px) rotate(0.3deg);
-  }
-
-  50% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-}
-
-/* Continuous spin — star/asterisk decorations */
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Pulse glow */
-@keyframes pulseGlow {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.65;
-    box-shadow: 0 0 32px 12px currentColor;
-  }
-}
-
-/* Bold pop-in from below + skew */
-@keyframes skewPop {
-  0% {
-    transform: translateY(60px) skewY(4deg) scale(0.9);
-    opacity: 0;
-  }
-
-  70% {
-    transform: translateY(-6px) skewY(-1deg) scale(1.02);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(0) skewY(0deg) scale(1);
-    opacity: 1;
-  }
-}
-
-/* Horizontal slide in */
-@keyframes marchIn {
-  from {
-    transform: translateX(-40px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* ===== UTILITY CLASSES ===== */
-.container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 var(--space-lg);
-}
-
-.section-padding {
-  padding: var(--space-5xl) 0;
-}
-
-/* Spinning star decoration (DIKO staple) */
-.diko-star {
-  display: inline-block;
-  animation: spin 8s linear infinite;
-  color: var(--color-yellow);
-  line-height: 1;
-}
-
-.diko-star--fast {
-  animation-duration: 4s;
-}
-
-.diko-star--slow {
-  animation-duration: 14s;
-}
-
-.diko-star--pink {
-  color: var(--color-hot-pink);
-}
-
-.diko-star--lime {
-  color: var(--color-lime);
-}
-
-.diko-star--ccw {
-  animation-direction: reverse;
-}
-
-/* ===== DECORATIVE SHAPES ===== */
-.shape {
-  position: absolute;
-  pointer-events: none;
-  z-index: var(--z-floating);
-}
-
-.shape-circle {
-  border-radius: 50%;
-}
-
-.shape-blob {
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-}
-
-/* ===== BUTTON STYLES ===== */
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-xs);
-  font-family: var(--font-);
-  font-weight: 800;
-  font-size: 1rem;
-  padding: 1rem 2.5rem;
-  border-radius: var(--radius-full);
-  transition: all var(--transition-base);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  position: relative;
-  overflow: hidden;
+  justify-content: center;
+  padding: 12px 32px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 2px solid var(--stroke);
+  border-radius: 9999px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0 var(--stroke);
 }
 
 .btn-primary {
-  background: var(--color-yellow);
-  color: var(--color-dark);
-  border: 3px solid var(--color-dark);
-  box-shadow: 4px 4px 0 var(--color-dark);
+  background-color: var(--terracotta);
+  color: white;
 }
 
-.btn-primary:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--color-dark);
+.btn-secondary {
+  background-color: var(--mustard);
+  color: var(--plum);
 }
 
-.btn-outline {
-  background: transparent;
-  color: var(--color-primary);
-  border: 3px solid var(--color-primary);
-  box-shadow: 3px 3px 0 var(--color-primary);
+.btn-ghost {
+  background-color: transparent;
+  color: var(--plum);
 }
 
-.btn-outline:hover {
-  background: var(--color-primary);
-  color: var(--color-cream);
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 var(--color-primary);
+.btn-white {
+  background-color: white;
+  color: var(--plum);
 }
 
-.btn-arrow::after {
-  content: '→';
-  display: inline-block;
-  transition: transform var(--transition-fast);
+/* Scaffolding */
+.section-padding {
+  padding: 96px 0;
 }
 
-.btn-arrow:hover::after {
-  transform: translateX(4px);
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
-/* ===== SCROLL REVEAL HELPERS ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
 }
 
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+/* Lenis CSS */
+html.lenis {
+  height: auto;
 }
 
-/* ===== SELECTION — yellow like DIKO ===== */
-::selection {
-  background: var(--color-yellow);
-  color: var(--color-dark);
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
